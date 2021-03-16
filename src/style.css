@@ -1387,22 +1387,24 @@ article{
 
 /**** section-6 ****/
 .section6{
-    background: #fff;
+    width: 100%;
 }
 .container-sec6{
     display: flex;
-    width: 100%;
 }
 .sec6-slider{
+    --item-show: 4;
+    --item-percentage: calc(100% / var(--item-show));
+
     width: 100%;
     overflow: hidden;
 }
-.sec6-slider-inner{
+.sec6-slider .sec6-slider-inner{
     display: flex;
 }
-.sec6-slider-inner .item{
-    flex: 0 0 25%;
-    width: 25%;
+.sec6-slider .sec6-slider-inner .item{
+    flex: 0 0 var(--item-percentage);
+    width: var(--item-percentage);
 }
 .sec6-slider-inner .item .sec6-img{
     position: relative;
@@ -1449,21 +1451,18 @@ article{
     filter: invert(60%) sepia(31%) saturate(4988%) hue-rotate(114deg) brightness(99%) contrast(92%);
 }
 @media screen and (max-width: 1199px) {
-    .sec6-slider-inner .item{
-        flex: 0 0 33.33%;
-        width: 33.33%;
+    .sec6-slider{
+        --item-show: 3;
     }
 }
 @media screen and (max-width: 989px) {
-    .sec6-slider-inner .item{
-        flex: 0 0 50%;
-        width: 50%;
+    .sec6-slider{
+        --item-show: 2;
     }
 }
 @media screen and (max-width: 767px) {
-    .sec6-slider-inner .item{
-        flex: 0 0 100%;
-        width: 100%;
+    .sec6-slider{
+        --item-show: 1;
     }
 }
 /**** section-6 ****/
